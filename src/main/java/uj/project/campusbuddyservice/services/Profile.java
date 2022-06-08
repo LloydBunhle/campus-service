@@ -28,6 +28,9 @@ public class Profile {
                     .stream()
                     .map(users -> modelMapper.map(users, ProfileDto.class))
                     .collect(Collectors.toList());
+            if(details.isEmpty()){
+                return new ResponseEntity<>("No user found", HttpStatus.NO_CONTENT);
+            }
             return ResponseEntity.status(HttpStatus.OK).body(Optional.of(details));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Optional.of("No Content Found"));

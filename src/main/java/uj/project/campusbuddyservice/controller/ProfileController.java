@@ -23,7 +23,7 @@ public class ProfileController {
         try{
             return  profileService.getUserProfile(email);
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Optional.of("No Content Found"));
+            return  new ResponseEntity<>("Something went wrong", HttpStatus.BAD_REQUEST);
         }
     }
 }
