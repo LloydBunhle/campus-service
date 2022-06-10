@@ -8,10 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uj.project.campusbuddyservice.dto.LoginDto;
 import uj.project.campusbuddyservice.dto.SignUpDto;
 import uj.project.campusbuddyservice.entity.Role;
@@ -24,6 +21,7 @@ import java.util.Collections;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin
 public class AuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -74,9 +72,6 @@ public class AuthController {
             User user = new User();
             user.setName(signUpDto.getName());
             user.setUsername(signUpDto.getUsername());
-            user.setSurname(signUpDto.getSurname());
-
-            user.setStudentNumber(signUpDto.getStudentNumber());
             user.setCourse(signUpDto.getCourse());
             user.setEmail(signUpDto.getEmail());
             user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));

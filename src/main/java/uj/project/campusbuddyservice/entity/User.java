@@ -18,9 +18,6 @@ public class User {
     private long id;
     private String name;
     private String username;
-    private String surname;
-
-    private String studentNumber;
     private String course;
     private String email;
     private String password;

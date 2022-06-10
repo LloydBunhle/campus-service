@@ -9,6 +9,7 @@ import uj.project.campusbuddyservice.services.ResetPassword;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin
 public class ResetPasswordController {
 
     @Autowired

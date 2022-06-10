@@ -36,8 +36,6 @@ public class ResetPassword {
         User users = userfound.get();
         users.setName(users.getName());
         users.setUsername(users.getUsername());
-        users.setSurname(users.getSurname());
-        users.setStudentNumber(users.getStudentNumber());
         users.setCourse(users.getCourse());
         users.setEmail(users.getEmail());
 //        Role roles = roleRepository.findByName("ROLE_ADMIN").get();
