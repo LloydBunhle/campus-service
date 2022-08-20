@@ -9,4 +9,6 @@ public interface MarketRepository extends JpaRepository<Markets,Long> {
     List<Markets> findAllById(int id);
 
     List<Markets> findAllByEmail(String email);
+
+    List<Markets> deleteAllById(long id);
 }

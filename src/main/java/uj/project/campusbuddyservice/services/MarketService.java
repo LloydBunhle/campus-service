@@ -15,8 +15,6 @@ public class MarketService {
 
     @Autowired
     private MarketRepository marketRepository;
-//    @Autowired
-//    private MarketDto marketDto;
 
     public ResponseEntity<?> getAllItems(){
         try{
@@ -77,6 +75,15 @@ public class MarketService {
             marketRepository.save(_updateItem);
             return ResponseEntity.status(HttpStatus.OK).body(Optional.of(_updateItem));
 
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Optional.of("No Content Found"));
+        }
+    }
+
+    public ResponseEntity<?> deleteMyItem(long id){
+        try{
+            List<Markets> deleted = marketRepository.deleteAllById(id);
+            return ResponseEntity.status(HttpStatus.OK).body(Optional.of(deleted));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Optional.of("No Content Found"));
         }

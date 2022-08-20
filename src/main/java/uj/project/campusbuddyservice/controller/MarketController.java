@@ -28,14 +28,16 @@ public class MarketController {
     public ResponseEntity<?> findUserItems(@PathVariable("email") String postedByEmail){
         return marketService.getItemByUserEmail(postedByEmail);
     }
-
     @PostMapping("/addNew")
     public ResponseEntity<?> createNew(@RequestBody MarketDto marketDto){
         return marketService.createNewItem(marketDto);
     }
-
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateItem(@PathVariable("id") long id ,@RequestBody MarketDto marketDto){
       return marketService.updateAnItem(id, marketDto);
+    }
+    @DeleteMapping("/remove/{id}")
+    public ResponseEntity<?> deleteMyItem(@PathVariable("id") long id){
+        return  marketService.deleteMyItem(id);
     }
 }
