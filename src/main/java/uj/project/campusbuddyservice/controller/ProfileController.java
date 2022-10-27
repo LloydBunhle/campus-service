@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/profile")
-@CrossOrigin
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class ProfileController {
 
     @Autowired

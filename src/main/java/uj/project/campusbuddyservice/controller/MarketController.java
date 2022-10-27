@@ -9,7 +9,7 @@ import uj.project.campusbuddyservice.services.MarketService;
 
 @RestController
 @RequestMapping("/api/market")
-@CrossOrigin
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class MarketController {
 
     @Autowired
